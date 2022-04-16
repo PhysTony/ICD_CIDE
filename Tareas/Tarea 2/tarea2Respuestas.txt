@@ -1,0 +1,87 @@
+"""
+Tarea 2: Estructuras de datos simples
+"""
+
+#  (1) ¿A que se debe que los sistemas reflexivos no puedan analizarse a través 
+# de teoremas (planteamientos lógicos)? 
+
+"""En un sistema reflexivo el entorno condiciona el comportamiento de los agentes que 
+lo componen, pero a su vez el comportamiento agregado de estos genera cambios en la naturaleza
+del entorno. Por lo tando al modificar las condiciones con que
+operan los agentes no es posible deducir mediante argumentos lógicos las implicaciones
+que tiene el entorno sobre la explicación de algún fenómeno."""
+
+
+# (2) ¿Por qué los comportamientos macroscópicos no pueden interpretarse mediante 
+# simples consideraciones de agencia?
+
+"""Porque el comportamiento es producto de las decisiones de los agentes, pero también
+de las interacciones que tienen dichos agentes en el sistema. Esta interdependencia
+produce efectos de retroalimentación --positivos y negativos-- que dan origen a
+propiedades emergentes (o comportamientos macroscópicos) muy diferentes a las
+que se podría deducir de tan solo analizar el comportamiento de las partes de manera aislada"""
+
+
+
+# (3) A partir de un diccionario, crea un contador del número de letras que
+# usa una palabra
+
+word = 'brontosaurus'
+d = dict()
+for c in word:
+   if c not in d:
+       d[c] = 1
+   else:
+       d[c] = d[c] + 1
+print(d)
+
+# (4)Los diccionarios tienen un método get que presenta una llave (key) y un valor de default.
+# Si la llave aparece en el diccionario regresa el valor correspondiente,
+# en caso contrario le asigna a la llave el valor de default.  Ejemplo:
+# counts = { 'chuck' : 1 , 'annie' : 42, 'jan': 100}
+# print(counts.get('jan', 0))
+# 100
+# print(counts.get('tim', 0))
+# 0
+# Utiliza este método para escribir la rutina del ejercicio 3 de forma más concisa.
+
+word = 'brontosaurus'
+d = dict()
+for c in word:
+  d[c] = d.get(c,0) + 1
+print(d)
+
+# 5 Usando una lista, el loop while, y el comando len(lista) que mide el tamaño de una lista,
+# calcular el valor promedio de los números que aparecen en una lista dada
+
+total = 0
+count = 0
+lista = [1, 2, 3, 4, 5, 6]
+while count < len(lista):
+  total = total + lista[count]
+  count = count + 1
+average = total / count
+print('Average:', average)
+
+
+# Considera el siguiente código
+list_of_ints_in_strings = ['42', '65', '12']
+list_of_ints = []
+for x in list_of_ints_in_strings:
+    list_of_ints.append(int(x))
+print(sum(list_of_ints))
+
+# ¿Qué es lo que hace este código?  
+# ¿Cómo podrías reducir el código mediante una compresión de lista?
+# ¿Cómo podrías excluir de la suma a los  valores mayores a 60?
+
+""" convierte los str de la lista en enteros y los suma"""
+
+
+list_of_ints_in_strings = ['42', '65', '12']
+list_of_ints = [ int(x) for x in list_of_ints_in_strings ]
+print(sum(list_of_ints))
+
+list_of_ints_in_strings = ['42', '65', '12']
+list_of_ints = [ int(x) for x in list_of_ints_in_strings if int(x) < 60 ]
+print(sum(list_of_ints))

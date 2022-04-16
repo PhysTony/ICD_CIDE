@@ -1,0 +1,67 @@
+"""
+Tarea 1, Elementos esenciales de Python.
+
+"""
+
+# (1) Explicar por qué un modelo predictivo no es capaz de explicar
+# relaciones causales. 
+
+"""
+Un modelo predictivo puede mostrar una buena exactitud de sus pronósticos 
+pero sin explicar por qué se produce el resulado.
+La evaluación del pronóstico se lleva a cabo para datos
+que están fuera de la muestra, pero que se se generan con el mismo
+proceso estocástico. Por lo tanto, suponen que la distribucion con la que 
+se produce la información se mantiene constante.
+De aquí que no se aplica para ejercicios contrafactuales, en las que
+una variable es intervenida.
+"""
+
+# (2) ¿Que se requiere para que un modelo empírico pueda ser utilizado 
+# como guía para la implementación de políticas públicas? 
+
+"""
+Por definición una política pública implica la intervención en una 
+determinada variable, por lo que se requiere de un análisis en que los 
+pronósticos se establezcan a partir de variables (predictores)
+cuyos valores no se generan en la evidencia muestral (i.e, en otra 
+distribución).
+Los experimentos virtuales (simulaciones), en el laboraotio, en el campo y
+naturales son convenientes para explixar relaciones causales en las que
+una variable es intervenida
+"""
+
+# (3) Escribe un programa de Python en el que puedas encontrar el máximo 
+# valor de una lista o secuencia (utiliza un iterador).
+
+largest = None
+print('Before:', largest)
+for itervar in [3, 41, 12, 9, 74, 15]:
+     if largest is None or itervar > largest :
+         largest = itervar
+     print('Loop:', itervar, largest)
+print('Largest:', largest)
+
+
+# (4) Escribe un programa en el que se cuenta el número de veces 
+# en que aparece la letra ‘a’ en la cadena ‘bananas’ 
+
+word = 'banana'
+count = 0
+for letter in word:
+    if letter == 'a':
+       count = count + 1
+print(count)
+
+#  Escribe una función que calcula el valor factorial de cualquier
+# número entero  
+
+def factorial(n):
+   k = 1
+   for i in range(n):
+      k = k * (i + 1)
+   return k
+
+factorial(24)
+
+

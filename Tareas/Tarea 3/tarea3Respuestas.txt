@@ -1,0 +1,119 @@
+# -*- coding: utf-8 -*-
+"""
+Tarea 3  Funciones y Lectura de archivos
+"""
+
+# (1) Explicar por qué los ABM combinan procesos inductivos y deductivo en la búsqueda de formular y 
+# validar teorías
+
+""" Los ABM son deductivos en la medida en que a partir de condiciones iniciales generan consecuencias a 
+partir de funciones recursivas (y no mediante derivaciones lógicas). A la vez son inductivos ya que con los 
+datos artificiales que producen pueden ayudar a detactar patrones --replicar datos observado--
+y de esta manera es posible validar hipótesis""" 
+
+
+
+
+# (2) ¿En qué sentido los ABM producen teoremas de suficiencia?
+
+"""En la medida en que pueden explicar la realidad observada (i.e., regularidades estadísticas) a partir
+de los mecanismos sociales incluidos en el modelo. Sin embargo, ello no quiere decir que no existan
+otros mecanismos que puedan generar el mismo fenómeno, de ahí que solo se hable de condiciones de
+suficiencia, pero no necesarias"""
+
+
+
+# (3) Define una función que genere números aleatorios ya sea con una distribución normal estándar 
+# con el método de numpy np.random.randn() --recordar que primero hay que importar numpy as np-- o bien
+# con una distribución uniforme en (0, 1) con el método: np.random.uniform(0, 1). La elección de la
+# distribución a usar y la dimensión del vector se establece cuando se llama la función en el script.
+# En la función debes ir generando los números aleatorios uno a uno e insertarlos en una lista, la cual
+# deberás imprimir al término del programa.  
+
+
+import numpy as np
+def generador_datos(n, generador_tipo):
+   lista_valores = []
+   for i in range(n):
+      if generador_tipo == 'U':
+         e = np.random.uniform(0, 1)
+      else:
+         e = np.random.randn()
+      lista_valores.append(e)
+   return lista_valores
+data = generador_datos(20, 'N')
+print(data)
+
+
+
+# (4) A partir del archivo 'segismundo.txt' insertado en un folder de tu computadora, 
+# elabora un loop para contar el número de líneas del archivo
+
+
+fhand = open('segismundo.txt', encoding='utf-8')
+count = 0
+for line in fhand:
+   count += 1
+print('Line Count:', count)
+
+
+# (5)  Uno de los métodos de la lectura de archivos (startswith) permite leer las líneas que empiezan 
+# con cierta palabra. Con el archivo 'segismundo.txt' elabora un programa que
+# lea todas las lineas que empiezan con 'sueña' e indica el número de lineas con este atributo.
+# Asegúrate de escribirlas a renglón seguido usando un método de lectura de líneas en un archivo. 
+
+fhand = open('segismundo.txt', encoding='utf-8')
+count = 0
+for line in fhand:
+    line = line.rstrip()                    #quita los espacios en blanco a la derecha de la cadena
+    if line.startswith('sueña'):
+        count += 1
+        print(line)
+print ('Núnero de líneas que empiezan con sueña:', count)
+
+
+# (6) A partir del comando input('Introduce el nombre del archivo:' ) Python puede asignar  el nombre 
+# del archivo a leer a una variable, la que luego puedes usar para abrir el archivo con el método (open) en
+# el mismo script. Por lo tanto, puedes escribir en la consola de Spyder el nombre del archivo cuando 
+# se ejecuta el programa. Considera la posibilidad que te puedas equivocar al poner el nombre del archivo: 
+# segismundo.txt,  por lo que usa el manejo de excepciones (try/except) para que el programa indique 
+# que te equivocaste (usar un print) y para que aborte la corrida con el comando (exit()) en vez de que python
+# sólo marque el error. En caso de que el nombre del archivo esté bien escrito debes contar el número de líneas 
+# que empiezan con la cadena 'sueña'.
+
+ 
+
+
+fname = input('Introduce el nombre del archivo: ')
+try:
+   fhand = open(fname, encoding='utf-8')
+   print(fhand)
+except:
+   print('El archivo', fname, 'no puede abrirse')
+   exit()
+count = 0
+for line in fhand:
+   if line.startswith('sueña'):
+       count +=  1      
+print('Hay un total de', count, 'líneas con la palabra sueña en el archivo', fname)
+fhand.close()
+
+# (7) Abre un archivo de texto nuevo con el modo de escribir (write), y checa con print que lo creaste.
+# Luego cono el método de escritura de líneas (write) escribe las dos primeras líneas del himno nacional.
+# Asegurate de cambiar de renglón poniendo el carácter de nueva línea \n al final cada renglón entrecomillado.
+# Asegurate de cerrar el archivo, y luego lo vuelves a abrir para leerlo, imprimiendo línea por línea
+# a renglón seguido.
+
+
+file = open('nuevo.txt', 'w', encoding='utf-8')
+print(file)
+linea1 = "Mexicanos al grito de guerra, \n"
+linea2 = "al sonoro rugir del cañon, \n"
+file.write(linea1)
+file.write(linea2)
+file.close()
+f = open('nuevo.txt ', encoding='utf-8' )
+for line in f:
+    line = line.rstrip()
+    print(line)
+f.close()

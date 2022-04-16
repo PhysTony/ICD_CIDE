@@ -1,0 +1,79 @@
+# -*- coding: utf-8 -*-
+"""
+Tarea 4  Elementos básicos de Numpy
+
+"""
+
+
+# (1) Supón que los nodos son los hashtag de todos los Twitter que se emiten en 
+# México en un cierto día. El peso de un enlace entre dos nodos de una red pude medir 
+# la proximidad entre esos dos nodos. ¿Cómo establecerías los pesos del enlace entre hashtags?
+
+""" Apelaría al criterio de coocurrencia, por lo que dos nodos (hashtags) tienden a ser 
+cercanos cuando se presentan de manera muy frecuente en forma conjunta. Esto indicadiría
+que esas pequeñas narrativas comparten algún interés en común que sus autores quieren 
+promover"""  
+
+  
+
+# (2) Crea un arreglo con tres elementos y obtén con la función del seno() de Numpy
+# los valores correspondientes, los cuales deben ser almacenados en otro vector
+# para ser impresos.
+# Realiza la misma operación, pero por un camino largo. Ejecuta un loop en el que cada uno
+# de los elementos del arreglo inicial es transformado con el seno()
+
+
+import numpy as np
+z = np.array([1, 2, 3])
+sin_z = np.sin(z)
+print(sin_z)
+
+n = len(z)
+y = np.zeros(n)
+for i in range(n):
+    y[i] = np.sin(z[i])
+print(y)
+
+
+# (3) Considera un polinomio de orden N. Escribe un programa con arreglos y métodos de Numpy.
+# Implementa una función en la que se use el método cumprod(). Invoca a la función asignando 
+# un valor a la variable (x) y los coeficientes asociados del polinomio correspondiente 
+# (Ojo: si N = 2, debe haber tres coeficientes ya que hay un término constante). 
+# Estos coeficientes deben formar parte de un arreglo.
+# Imprime el valor numérico de la función polinómica.
+# Con el método de Numpy para la creación y evaluación de polinomios np.poly1d checa que
+# el cálculo anterior sea el correcto. 
+
+
+
+def p(x, coef):
+     X = np.ones_like(coef)
+     X[1:] = x           # se le pone el valor de x a todos los elementos menos el 1 inicial
+     y = np.cumprod(X)   # y = [1, x, x**2,...],  se van acumulando multiplicaciones de x
+     poli_x =coef @ y    # se multiplican los coeficientes con el vector  y
+     return  poli_x        
+
+x = 2
+coef = np.array([2, 3, 4])
+print(p(x, coef))
+                               # Para checar que la operación es la correcta
+q = np.poly1d(np.flip(coef))   # se usa flip ya que en este método el coeficiente inicial
+                               # es el de x**N y el último el del término constante
+print(q(x))                    # se evalua el polinomio en x
+
+
+# (4) Crea una matriz (4 x 3) de números enteros generados aleatoriamente entre 0 y 10.
+# Reemplaza los dos primeros vectores renglón con escalares = 7
+# Crea un nuevo arreglo (4 x 1) con puros unos y anéxalo con el método append()
+# a la matriz anterior
+# Imprime cada uno de los resultados parciales que vas generando
+  
+
+mat1  = np.random.randint(0, 11, size=(4, 3))
+print(mat1)
+mat1[0:2] = 7
+print(mat1)
+tempo = np.ones((4, 1))
+print (tempo)
+mat2 = np.append(mat1,tempo, axis = 1)
+print (mat2)
