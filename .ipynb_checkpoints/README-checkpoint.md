@@ -7,4 +7,4 @@ En este repositorio subo la parte teórica, práctica, de laboratorio, tareas y 
 
 Sin embargo, tarda mucho
 
-<img title="a title" alt="Alt text" src="loading.png">
+<img src="/Proyecto/loading.jpg" >
