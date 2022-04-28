@@ -1,4 +1,4 @@
-En este repositorio subo la parte teórica, práctica, de laboratorio, tareas y proyectos de clase para que me fusilen todas las tareas y hacerme promoción pro lo vergas que programo.
+En este repositorio subo la parte teórica, práctica, de laboratorio, tareas y proyectos de clase para que me fusilen todas las tareas y hacerme promoción jajaja.
 
 **Puedes crear un ambiente virtual dando clicl en el siguiente botón:**
 
