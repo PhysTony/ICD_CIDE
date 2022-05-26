@@ -1,0 +1,5 @@
+https://yuasaavedraco.github.io/Docs/Regresi%C3%B3n_Lineal_Simple_con_Python.html
+
+https://stackoverflow.com/questions/68483758/how-to-run-hausman-test-for-endogeneity-on-during-regression-in-python-using-sta
+
+https://stackoverflow.com/questions/12989925/hausman-type-test-in-r
